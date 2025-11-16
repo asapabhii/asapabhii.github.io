@@ -7,73 +7,38 @@
   <meta name="description" content="asapabhi — Surprise coming soon" />
   <style>
     :root{
-      --bg1:#071028;
-      --accent1:#7c3aed;
-      --accent2:#06b6d4;
-      --accent3:#ff6fbf;
-      --text:#e6eef8;
-      --glass: rgba(255,255,255,0.04);
+      --bg1:#071028; --accent1:#7c3aed; --accent2:#06b6d4; --accent3:#ff6fbf; --text:#e6eef8;
     }
     *{box-sizing:border-box}
     html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,var(--bg1),#031027);color:var(--text);-webkit-font-smoothing:antialiased}
-
-    /* full-screen scene with perspective for 3D parallax */
     .scene{height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;perspective:1400px;padding:48px;position:relative}
-
-    /* background deep layers */
     .bg-layer{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:0}
     .bg-layer .neb{position:absolute;border-radius:50%;filter:blur(120px);mix-blend-mode:screen;opacity:0.9}
     .neb.n1{width:700px;height:700px;background:radial-gradient(circle at 30% 30%, rgba(124,58,237,0.18), transparent 20%);left:-150px;top:-120px;transform:scale(1.15)}
     .neb.n2{width:600px;height:600px;background:radial-gradient(circle at 70% 70%, rgba(6,182,212,0.14), transparent 20%);right:-160px;bottom:-130px;transform:scale(1.05)}
     .glow-spark{position:absolute;width:260px;height:260px;border-radius:50%;filter:blur(60px);opacity:0.6;left:50%;top:40%;transform:translate(-50%,-50%);background:conic-gradient(var(--accent1),var(--accent2),var(--accent3));z-index:1}
-
-    /* 3D container */
     .card-wrap{transform-style:preserve-3d;transition:transform 0.14s ease;will-change:transform;z-index:3}
-    .card{width:min(1100px,95%);max-width:1200px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:22px;padding:34px 40px;backdrop-filter:blur(8px);box-shadow: 0 30px 90px rgba(2,6,23,0.7);border:1px solid rgba(255,255,255,0.03);display:flex;gap:34px;align-items:center;position:relative;overflow:visible;transform-style:preserve-3d}
-
-    /* inner layer gets the translateZ bob & pop effect (isolated transform) */
-    .card-inner{transform-style:preserve-3d;transition:transform 0.12s ease;will-change:transform; /* subtle float */ animation:floatY 6s ease-in-out infinite;}
+    .card{width:min(1100px,95%);max-width:1200px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:22px;padding:26px 32px;backdrop-filter:blur(8px);box-shadow: 0 30px 90px rgba(2,6,23,0.7);border:1px solid rgba(255,255,255,0.03);display:flex;gap:24px;align-items:center;position:relative;overflow:visible;transform-style:preserve-3d}
+    .card-inner{transform-style:preserve-3d;transition:transform 0.12s ease;will-change:transform;animation:floatY 6s ease-in-out infinite;}
     @keyframes floatY {0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
-
-    .left{flex:1;min-width:280px;transform-style:preserve-3d}
-    .logo{display:flex;align-items:center;gap:14px}
-    .mark{width:76px;height:76px;border-radius:18px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:20px;box-shadow:0 18px 50px rgba(12,8,30,0.6);transform:translateZ(60px)}
-    .mark span{font-size:18px;letter-spacing:0.02em}
-
-    h1{margin:18px 0 6px;font-size:44px;letter-spacing:-0.02em;line-height:1.02;text-shadow:0 8px 30px rgba(6,20,40,0.6);transform:translateZ(70px)}
-    p.lead{margin:0;color:rgba(230,238,248,0.82);font-size:16px;max-width:680px;transform:translateZ(50px)}
-
-    .typer{margin-top:12px;font-size:14px;color:rgba(230,238,248,0.6);transform:translateZ(50px)}
+    .left{flex:1;min-width:240px;transform-style:preserve-3d}
+    .logo{display:flex;align-items:center;gap:12px}
+    .mark{width:68px;height:68px;border-radius:14px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:18px;box-shadow:0 14px 40px rgba(12,8,30,0.6);transform:translateZ(60px)}
+    h1{margin:12px 0 6px;font-size:36px;letter-spacing:-0.02em;line-height:1.02;text-shadow:0 8px 30px rgba(6,20,40,0.6);transform:translateZ(70px)}
+    p.lead{margin:0;color:rgba(230,238,248,0.82);font-size:15px;max-width:620px;transform:translateZ(50px)}
+    .typer{margin-top:12px;font-size:13px;color:rgba(230,238,248,0.6);transform:translateZ(50px)}
     .cursor{display:inline-block;width:10px;background:#e6eef8;height:1.1em;margin-left:6px;animation:blink 1s steps(2) infinite}
     @keyframes blink{50%{opacity:0}}
-
-    .right{width:360px;min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;transform:translateZ(60px)}
-    .count{font-size:30px;font-weight:800;color:var(--accent2);margin-bottom:4px}
+    .right{width:320px;min-height:170px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;transform:translateZ(60px)}
+    .count{font-size:26px;font-weight:800;color:var(--accent2);margin-bottom:4px}
     .sub{font-size:13px;color:rgba(230,238,248,0.68)}
-
-    .glow-btn{margin-top:12px;padding:12px 20px;border-radius:999px;border:none;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:white;font-weight:700;cursor:pointer;box-shadow:0 14px 40px rgba(124,58,237,0.14);transform:translateZ(70px);transition:transform .2s ease,box-shadow .2s ease}
+    .glow-btn{margin-top:12px;padding:10px 18px;border-radius:999px;border:none;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:white;font-weight:700;cursor:pointer;box-shadow:0 12px 36px rgba(124,58,237,0.12);transform:translateZ(70px);transition:transform .14s ease,box-shadow .14s ease}
     .glow-btn:active{transform:translateY(1px)}
-
-    /* floating decorative orbs */
+    .small{font-size:12px;color:rgba(230,238,248,0.6)}
     .orb{position:absolute;width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,0.07);box-shadow:0 6px 18px rgba(0,0,0,0.6);pointer-events:none}
-
-    /* shine overlay */
     .shine{position:absolute;inset:0;border-radius:22px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0));mix-blend-mode:overlay;pointer-events:none;z-index:2}
-
-    /* responsive */
-    @media (max-width:860px){
-      h1{font-size:28px}
-      .right{width:100%}
-      .card{flex-direction:column;padding:28px}
-      .mark{width:64px;height:64px}
-    }
-
-    /* accessibility: reduce motion if user prefers */
-    @media (prefers-reduced-motion: reduce) {
-      .card-inner{animation: none !important}
-      .card-wrap, .card-inner { transition: none !important }
-    }
-
+    @media (max-width:860px){h1{font-size:26px}.right{width:100%}.card{flex-direction:column;padding:18px}.mark{width:60px;height:60px}}
+    @media (prefers-reduced-motion: reduce){.card-inner{animation:none !important}.card-wrap,.card-inner{transition:none !important}}
   </style>
 </head>
 <body>
@@ -106,7 +71,10 @@
         <aside class="right" aria-label="actions">
           <div class="count" id="emailStatus">Join the waitlist</div>
           <div class="sub">Subscribe and I’ll ping you when the surprise is live.</div>
-          <button class="glow-btn" id="openForm">Get notified</button>
+
+          <!-- SIMPLE WAITLIST: opens mail client -->
+          <button id="openForm" class="glow-btn">Get notified</button>
+          <div class="small" style="margin-top:8px">No spam. You can unsubscribe anytime.</div>
         </aside>
 
         <div class="shine" aria-hidden></div>
@@ -120,14 +88,13 @@
   </div>
 
   <script>
-    // typer
+    // tiny typer
     (function(){
       const phrases = ['Trust the process','Good things take time','Worth the wait','Surprise incoming'];
       const typer = document.getElementById('typer');
       let i=0, p=0;
       function type(){
         const txt = phrases[p];
-        // remove previous text node (if any) but keep cursor
         while(typer.firstChild && !typer.firstChild.classList) typer.removeChild(typer.firstChild);
         const node = document.createTextNode(txt.slice(0,i));
         typer.insertBefore(node, typer.querySelector('.cursor'));
@@ -137,7 +104,7 @@
       setTimeout(type,700);
     })();
 
-    // 3D tilt: scene -> cardWrap (rotateX/Y), cardInner -> translateZ
+    // 3D tilt (mouse + touch)
     (function(){
       const scene = document.getElementById('scene');
       const cardWrap = document.getElementById('cardWrap');
@@ -147,16 +114,12 @@
         const rect = scene.getBoundingClientRect();
         const x = (clientX - rect.left) - rect.width/2;
         const y = (clientY - rect.top) - rect.height/2;
-        const dx = x / rect.width; // -0.5..0.5
+        const dx = x / rect.width;
         const dy = y / rect.height;
-
-        const rotY = dx * 9; // degrees
+        const rotY = dx * 9;
         const rotX = -dy * 9;
-        // translateZ pop based on horizontal distance
         const translateZ = 30 + Math.min(Math.abs(dx) * 120, 90);
-
         cardWrap.style.transform = `rotateY(${rotY}deg) rotateX(${rotX}deg)`;
-        // We only set translateZ on inner layer so bob CSS and translateZ don't clash
         cardInner.style.transform = `translateZ(${translateZ}px)`;
       }
 
@@ -164,31 +127,26 @@
         const pt = e.touches ? e.touches[0] : e;
         pointerMove(pt.clientX, pt.clientY);
       }
-
       function handleLeave(){
         cardWrap.style.transform = `rotateY(0deg) rotateX(0deg)`;
         cardInner.style.transform = `translateZ(40px)`;
       }
 
-      // events
       scene.addEventListener('mousemove', handleMove);
-      scene.addEventListener('touchmove', function(ev){
-        if(ev.touches && ev.touches.length) handleMove(ev);
-      }, {passive:true});
+      scene.addEventListener('touchmove', function(ev){ if(ev.touches && ev.touches.length) handleMove(ev.touches[0]); }, {passive:true});
       scene.addEventListener('mouseleave', handleLeave);
       scene.addEventListener('touchend', handleLeave);
       scene.addEventListener('touchcancel', handleLeave);
-
-      // initialize
       handleLeave();
     })();
 
-    // mailto waitlist (no backend)
+    // SIMPLE waitlist behavior: prompt for email & open mail client (mailto)
     document.getElementById('openForm').addEventListener('click', ()=>{
       const mail = prompt('Enter email to get notified (we will email you):','');
       if(!mail) return alert('No email entered');
       const subject = encodeURIComponent('Join waitlist — ' + location.hostname);
-      const body = encodeURIComponent('Please add me to the waitlist:\nEmail: ' + mail + '\nThanks!');
+      const body = encodeURIComponent('Join the waitlist:\nEmail: ' + mail + '\nThanks!');
+      // opens user's mail client to send to hello@<yourdomain>
       location.href = 'mailto:hello@' + location.hostname + '?subject=' + subject + '&body=' + body;
     });
   </script>
